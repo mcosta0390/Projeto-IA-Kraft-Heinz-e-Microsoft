@@ -1,0 +1,86 @@
+
+
+############# AUTOMATIZAR PRODUTOS ################
+
+-- Criação do trigger para automatizar o cadastro de produtos
+CREATE OR REPLACE TRIGGER trg_cadastro_produto
+AFTER INSERT ON GSF_PRODUTO
+FOR EACH ROW
+DECLARE
+  -- Variáveis para armazenar informações do novo produto
+  v_id_produto GSF_PRODUTO.id_produto%TYPE;
+  v_nome GSF_PRODUTO.nome%TYPE;
+  v_preco GSF_PRODUTO.preco%TYPE;
+BEGIN
+  -- Atribuir os valores do novo produto às variáveis
+  v_id_produto := :NEW.id_produto;
+  v_nome := :NEW.nome;
+  v_preco := :NEW.preco;
+  
+  -- Realizar ação desejada
+  -- Por exemplo, exibir uma mensagem com os detalhes do novo produto
+  DBMS_OUTPUT.PUT_LINE('Novo produto cadastrado:');
+  DBMS_OUTPUT.PUT_LINE('ID: ' || v_id_produto);
+  DBMS_OUTPUT.PUT_LINE('Nome: ' || v_nome);
+  DBMS_OUTPUT.PUT_LINE('Preço: ' || v_preco);
+END;
+/
+
+Neste exemplo, o trigger "trg_cadastro_produto" é criado com a opção "AFTER INSERT ON GSF_PRODUTO". Isso significa que o trigger será disparado sempre que um novo registro for inserido na tabela GSF_PRODUTO.
+
+
+############# AUTOMATIZAR FORNECEDOR ################
+
+-- Criação do trigger para automatizar o cadastro de fornecedores
+CREATE OR REPLACE TRIGGER trg_cadastro_fornecedor
+AFTER INSERT ON GSF_FORNECEDOR
+FOR EACH ROW
+DECLARE
+  -- Variáveis para armazenar informações do novo fornecedor
+  v_id_fornecedor GSF_FORNECEDOR.id_fornecedor%TYPE;
+  v_nome GSF_FORNECEDOR.nome%TYPE;
+  v_endereco GSF_FORNECEDOR.endereco%TYPE;
+BEGIN
+  -- Atribuir os valores do novo fornecedor às variáveis
+  v_id_fornecedor := :NEW.id_fornecedor;
+  v_nome := :NEW.nome;
+  v_endereco := :NEW.endereco;
+  
+  -- Realizar ação desejada
+  -- Por exemplo, exibir uma mensagem com os detalhes do novo fornecedor
+  DBMS_OUTPUT.PUT_LINE('Novo fornecedor cadastrado:');
+  DBMS_OUTPUT.PUT_LINE('ID: ' || v_id_fornecedor);
+  DBMS_OUTPUT.PUT_LINE('Nome: ' || v_nome);
+  DBMS_OUTPUT.PUT_LINE('Endereço: ' || v_endereco);
+END;
+/
+
+Neste exemplo, o trigger "trg_cadastro_fornecedor" é criado com a opção "AFTER INSERT ON GSF_FORNECEDOR". Isso significa que o trigger será disparado sempre que um novo registro for inserido na tabela GSF_FORNECEDOR.
+
+############# AUTOMATIZAR VEÍCULOS ################
+
+-- Criação do trigger para automatizar o cadastro de veículos
+CREATE OR REPLACE TRIGGER trg_cadastro_veiculo
+AFTER INSERT ON GSF_VEICULO_ENTREGA
+FOR EACH ROW
+DECLARE
+  -- Variáveis para armazenar informações do novo veículo
+  v_id_veiculo GSF_VEICULO_ENTREGA.id_veiculo%TYPE;
+  v_modelo GSF_VEICULO_ENTREGA.modelo%TYPE;
+  v_placa GSF_VEICULO_ENTREGA.placa%TYPE;
+BEGIN
+  -- Atribuir os valores do novo veículo às variáveis
+  v_id_veiculo := :NEW.id_veiculo;
+  v_modelo := :NEW.modelo;
+  v_placa := :NEW.placa;
+  
+  -- Realizar ação desejada
+  -- Por exemplo, exibir uma mensagem com os detalhes do novo veículo
+  DBMS_OUTPUT.PUT_LINE('Novo veículo cadastrado:');
+  DBMS_OUTPUT.PUT_LINE('ID: ' || v_id_veiculo);
+  DBMS_OUTPUT.PUT_LINE('Modelo: ' || v_modelo);
+  DBMS_OUTPUT.PUT_LINE('Placa: ' || v_placa);
+END;
+/
+
+Neste exemplo, o trigger "trg_cadastro_veiculo" é criado com a opção "AFTER INSERT ON GSF_VEICULO_ENTREGA". Isso significa que o trigger será disparado sempre que um novo registro for inserido na tabela GSF_VEICULO_ENTREGA.
